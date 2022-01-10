@@ -1,0 +1,19 @@
+<div class="container" *ngIf="item !== null && item !== undefined && item !== ''">
+  <img [src]="item.imageUrl" alt="">
+<h3>{{item.name}}</h3>
+<!-- Example single danger button -->
+<div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+      Manage Recipe
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" routerLink="/shopping-list" (click)="goToShoppingList(item.id)" href="#">To Shopping List</a>
+      <a class="dropdown-item" (click)="goToEdit(item.id)" href="javascript:void(0)">Edit Recipe</a>
+      <a class="dropdown-item" (click)="deleteItem(item.id)" href="javascript:void(0)">Delete Recipe</a>
+    </div>
+  </div>
+<h5>{{item.description}}</h5>
+<ul class="list-group">
+    <li *ngFor="let ingre;let i = index of item.listIngredient" class="list-group-item">{{ingre.ingredientName}} - {{ingre.quantity}}</li>
+  </ul>
+</div>

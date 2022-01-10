@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Demo';
+  isActive = 1;
+  constructor() {
+  }
+  changeActive(data : any){
+    this.isActive = data;
+  }
 }

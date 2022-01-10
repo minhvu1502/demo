@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row mt-5 mb-3">
+        <div class="col-8">
+        <label for="ingredientName" class="form-label">Name</label>
+            <input type="text" [(ngModel)]="ingredientName" id="ingredientName" class="form-control">
+        </div>
+        <div class="col-4">
+        <label for="quantity" class="form-label">Amount</label>
+            <input type="number" [(ngModel)]="quantity" min="0" id="quantity" class="form-control">
+        </div>
+        <div class="col-12 mt-1">
+            <button type="button" [disabled]="ingredientName === '' || quantity === ''" *ngIf="!isUpdate" class="btn btn-success" (click)="addIngredient()">Add</button>
+            <button *ngIf="isUpdate" type="button" class="btn btn-success" (click)="updateIngredient()">Update</button>
+            <button type="button" class="btn btn-danger" (click)="DeleteIngredient()">Delete</button>
+            <button type="button" class="btn btn-primary" (click)="clearAmount()">Clear</button>
+        </div>
+    </div>
+    <ul class="list-group">
+        <li style="cursor: pointer;" (click)="viewDetail(ingre,i)" *ngFor="let ingre;let i = index of item.listIngredient" class="list-group-item">{{ingre.ingredientName}} - {{ingre.quantity}}</li>
+      </ul>
+</div>
